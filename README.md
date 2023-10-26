@@ -22,4 +22,11 @@ It's designed to be as simple as possible, yet give you enough information to re
   * ESU licensed Cores/pCores and counts Assigned/NotAssinged
   * ESU assignments and activation counts
 
-#
+![arc-enabled-servers](./images/AzureArc-enabledServers.jpeg)
+
+![arc-enabled-esu](./images/AzureArc-enabledESU.jpeg)
+
+
+## Dashboard file
+  The dashboard is in JSON format and can be downloaded as a file here -->
+  [Azure Arc-Enabled Servers](files/AzureArc-EnabledServers.json)
