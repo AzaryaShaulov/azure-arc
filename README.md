@@ -6,21 +6,21 @@ It's designed to be as simple as possible, yet give you enough information to re
 
 
 #### Arc-enabled Servers section
- * Breakdown and count of Arc-enabled servers under your tenant
- * Servers by OS Types and counts 
- * Linux/Windows breakdown
- * Connected(Online)/Disconnected(offline) status
- * Outdated Azure-connected machine agents
+  * Breakdown and count of Arc-enabled servers within your tenant.
+  * Servers are categorized by OS types and corresponding counts.
+  * Distinction between Linux and Windows systems.
+  * Status classification of servers as Connected (Online) or Disconnected (Offline).
+  * Identification of outdated Azure-connected machine agents.
    
 #### Windows Server 2012/R2 section
-  * Track ESU licenses activated and assigned
-  * of servers eligible for ESU
-  * of servers enabled/not enabled for ESU deployment
-  * of server cores enabled/not enabled for ESU deployment
-  * Windows Server 2012/R2 editions and count
-  * ESU licenses states Activated/Deactivated
-  * ESU licensed Cores/pCores and counts Assigned/NotAssinged
-  * ESU assignments and activation counts
+   * Monitoring ESU licenses activated and assigned.
+ * Number of servers eligible for ESU.
+ * Servers are categorized as enabled or not enabled for ESU deployment.
+ * Server core counts enabled or not enabled for ESU deployment.
+ * Enumeration of Windows Server 2012/R2 editions and their corresponding counts.
+ * Tracking the activation states of ESU licenses, whether they are Activated or Deactivated.
+ * Counting the ESU-licensed Cores/pCores and distinguishing between those that are Assigned and Not Assigned.
+ * Keeping a record of ESU assignments and activation counts.
 
 ![arc-enabled-servers](./images/AzureArc-enabledServers.jpeg)
 
