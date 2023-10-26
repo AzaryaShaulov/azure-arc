@@ -20,7 +20,7 @@ It's designed to be as simple as possible, yet give you enough information to re
  * Enumeration of Windows Server 2012/R2 editions and their corresponding counts.
  * Tracking the activation states of ESU licenses, whether they are Activated or Deactivated.
  * Counting the ESU-licensed Cores/pCores and distinguishing between those that are Assigned and Not Assigned.
- * Keeping a record of ESU assignments and activation counts.
+ * Tracking ESU assignments and activation counts.
 
 ![arc-enabled-servers](./images/AzureArc-enabledServers.jpeg)
 
@@ -30,3 +30,34 @@ It's designed to be as simple as possible, yet give you enough information to re
 ## Dashboard file
   The dashboard is in JSON format and can be downloaded as a file here -->
   [Azure Arc-Enabled Servers](files/AzureArc-EnabledServers.json)
+
+  ## How to use it?
+
+Importing this  dashboard to your Azure environment.
+
+Follow this steps:
+
+* Download the dashboard json  a file here -->   [Azure Arc-Enabled Servers](files/AzureArc-EnabledServers.json)
+* Login to [Azure Portal](https://portal.azure.com/) 
+* Go to ___'Azure Dashboard'___
+
+
+   ![Azure dashboard](images/portaldashboard2.jpg)
+&NewLine;
+
+* Click on ___'+ Upload'___
+
+    ![Dashboard Upload](images/uploaddashboard3.jpg)
+&NewLine;
+
+* Select   ___'+ AzureArc-EnabledServers.json'___ file and click _'Open'_
+
+   ![Select JSON file](images/uploadjson4.jpg)
+&NewLine;
+
+
+__The dashboard is ready for use!__
+
+&nbsp;
+   ![Ready to use](images/dashbaordready5.jpg)
+    
