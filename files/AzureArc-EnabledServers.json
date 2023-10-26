@@ -353,7 +353,7 @@
               "type": "Extension/HubsExtension/PartType/MarkdownPart",
               "settings": {
                 "content": {
-                  "content": "<h3 style=\"text-align: center;\">Windows Server 2012/R2 ESU data</h3>\n",
+                  "content": "<h3 style=\"text-align: center;\">Windows Server 2012/R2 ESU statistics</h3>\n",
                   "title": "",
                   "subtitle": "",
                   "markdownSource": 1,
