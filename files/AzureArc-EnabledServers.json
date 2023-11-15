@@ -16,7 +16,7 @@
               "type": "Extension/HubsExtension/PartType/MarkdownPart",
               "settings": {
                 "content": {
-                  "content": "<h3 style=\"text-align: center;\">Azure Arc-Enabled Servers</h3>\n",
+                  "content": "<div style='line-height:30px;'>\n<span style='font-size:25px;font-weight:bold'>Azure Arc-Enabled Servers </span>\n</div>\n\n",
                   "title": "",
                   "subtitle": "",
                   "markdownSource": 1,
@@ -509,7 +509,7 @@
               "type": "Extension/HubsExtension/PartType/MarkdownPart",
               "settings": {
                 "content": {
-                  "content": "<h3 style=\"text-align: center;\">Windows Server 2012/R2 ESU data</h3>\n",
+                  "content": "\n<div style='line-height:30px;'>\n<span style='font-size:25px;font-weight:bold'>Windows Server 2012/R2 ESU data </span>\n</div>\n",
                   "title": "",
                   "subtitle": "",
                   "markdownSource": 1,
@@ -522,8 +522,8 @@
             "position": {
               "x": 0,
               "y": 16,
-              "colSpan": 2,
-              "rowSpan": 3
+              "colSpan": 3,
+              "rowSpan": 2
             },
             "metadata": {
               "inputs": [
@@ -572,10 +572,10 @@
           },
           "12": {
             "position": {
-              "x": 2,
+              "x": 3,
               "y": 16,
               "colSpan": 3,
-              "rowSpan": 3
+              "rowSpan": 2
             },
             "metadata": {
               "inputs": [
@@ -625,10 +625,10 @@
           },
           "13": {
             "position": {
-              "x": 5,
+              "x": 6,
               "y": 16,
               "colSpan": 3,
-              "rowSpan": 3
+              "rowSpan": 2
             },
             "metadata": {
               "inputs": [
@@ -678,169 +678,31 @@
           },
           "14": {
             "position": {
-              "x": 8,
+              "x": 9,
               "y": 16,
-              "colSpan": 3,
-              "rowSpan": 3
+              "colSpan": 12,
+              "rowSpan": 2
             },
             "metadata": {
-              "inputs": [
-                {
-                  "name": "partTitle",
-                  "value": "Total ESU Enabled Cores",
-                  "isOptional": true
-                },
-                {
-                  "name": "query",
-                  "value": "// Count of Windows Server 2012 and R2 servers cores that have ESU assigned vs un-assigned\r\nresources\r\n| where type == \"microsoft.hybridcompute/machines\"\r\n| extend \r\n    OSType = properties.osName,\r\n    OSsku = properties.osSku,\r\n    Server_Count= properties.licenseProfile.esuProfile.licenseAssignmentState,\r\n    VMCores = toint(properties.detectedProperties.coreCount)\r\n| where OSType == 'windows' and OSsku like  \"Windows Server 2012\"\r\n|where Server_Count ==\"NotAssigned\"\r\n|summarize  Total_ESU_NOT_Enabled_Cores=sum(VMCores)",
-                  "isOptional": true
-                },
-                {
-                  "name": "chartType",
-                  "isOptional": true
-                },
-                {
-                  "name": "isShared",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryId",
-                  "value": "b3ea3f1c-67f9-4291-8064-8a896a28e363",
-                  "isOptional": true
-                },
-                {
-                  "name": "formatResults",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryScope",
-                  "value": {
-                    "scope": 0,
-                    "values": []
-                  },
-                  "isOptional": true
+              "inputs": [],
+              "type": "Extension/HubsExtension/PartType/MarkdownPart",
+              "settings": {
+                "content": {
+                  "content": "Follow the <a href='https://learn.microsoft.com/en-us/azure/azure-arc/servers/license-extended-security-updates' target='_blank'>Extended Security Updates Licensing guidelines </a> when provisioning WS2012 ESU licenses, you need to specify:\n - Standard or Datacenter license\n - Either virtual core or physical core license\n  - license based on physical cores, the licensing requires a minimum of 16 physical cores per license.\n- license based on virtual cores, the licensing requires a minimum of eight virtual cores per Virtual Machine\n\n\n\n\n",
+                  "title": "ESU Licensing guidelines",
+                  "subtitle": "",
+                  "markdownSource": 1,
+                  "markdownUri": "https://github.com/AzaryaShaulov/azure-arc/blob/main/files/esuguidelines"
                 }
-              ],
-              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
-              "settings": {},
-              "partHeader": {
-                "title": "Cores ESU Not enabled  on",
-                "subtitle": ""
               }
             }
           },
           "15": {
             "position": {
-              "x": 11,
-              "y": 16,
-              "colSpan": 3,
-              "rowSpan": 3
-            },
-            "metadata": {
-              "inputs": [
-                {
-                  "name": "partTitle",
-                  "value": "Total ESU Enabled Cores",
-                  "isOptional": true
-                },
-                {
-                  "name": "query",
-                  "value": "// Count of Windows Server 2012 and R2 servers cores that have ESU assigned vs un-assigned\r\nresources\r\n| where type == \"microsoft.hybridcompute/machines\"\r\n| extend \r\n    OSType = properties.osName,\r\n    OSsku = properties.osSku,\r\n    Server_Count= properties.licenseProfile.esuProfile.licenseAssignmentState,\r\n    VMCores = toint(properties.detectedProperties.coreCount)\r\n| where OSType == 'windows' and OSsku like  \"Windows Server 2012\"\r\n|where Server_Count ==\"Assigned\"\r\n|summarize  Total_ESU_Enabled_Cores=sum(VMCores)",
-                  "isOptional": true
-                },
-                {
-                  "name": "chartType",
-                  "isOptional": true
-                },
-                {
-                  "name": "isShared",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryId",
-                  "value": "b3ea3f1c-67f9-4291-8064-8a896a28e363",
-                  "isOptional": true
-                },
-                {
-                  "name": "formatResults",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryScope",
-                  "value": {
-                    "scope": 0,
-                    "values": []
-                  },
-                  "isOptional": true
-                }
-              ],
-              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
-              "settings": {},
-              "partHeader": {
-                "title": "Cores ESU Enabled on",
-                "subtitle": ""
-              }
-            }
-          },
-          "16": {
-            "position": {
-              "x": 14,
-              "y": 16,
-              "colSpan": 7,
-              "rowSpan": 3
-            },
-            "metadata": {
-              "inputs": [
-                {
-                  "name": "partTitle",
-                  "value": "Query 6",
-                  "isOptional": true
-                },
-                {
-                  "name": "query",
-                  "value": "resources\r\n| where type == \"microsoft.hybridcompute/machines\"\r\n| extend \r\n    OSType = properties.osName,\r\n    OSsku = properties.osSku\r\n| where OSType == 'windows' and OSsku like  \"Windows Server 2012\"\r\n|summarize count () by tostring (OSsku)\r\n| order by ['OSsku'] asc",
-                  "isOptional": true
-                },
-                {
-                  "name": "chartType",
-                  "isOptional": true
-                },
-                {
-                  "name": "isShared",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryId",
-                  "value": "",
-                  "isOptional": true
-                },
-                {
-                  "name": "formatResults",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryScope",
-                  "value": {
-                    "scope": 0,
-                    "values": []
-                  },
-                  "isOptional": true
-                }
-              ],
-              "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
-              "settings": {},
-              "partHeader": {
-                "title": "Widows Server 2012/R2 by Edition",
-                "subtitle": ""
-              }
-            }
-          },
-          "17": {
-            "position": {
               "x": 0,
-              "y": 19,
-              "colSpan": 11,
-              "rowSpan": 4
+              "y": 18,
+              "colSpan": 9,
+              "rowSpan": 5
             },
             "metadata": {
               "inputs": [
@@ -888,12 +750,12 @@
               }
             }
           },
-          "18": {
+          "16": {
             "position": {
-              "x": 11,
-              "y": 19,
-              "colSpan": 10,
-              "rowSpan": 4
+              "x": 9,
+              "y": 18,
+              "colSpan": 12,
+              "rowSpan": 5
             },
             "metadata": {
               "inputs": [
@@ -903,21 +765,11 @@
                   "isOptional": true
                 },
                 {
-                  "name": "query",
-                  "value": "// Count of Windows Server 2012 and R2 servers braken down by hostType (Virtual/pCores), OS Edition, and ESU License Edition\r\nresources\r\n| where type == \"microsoft.hybridcompute/machines\"\r\n| extend \r\n    Hostname =  properties.osProfile.computerName,\r\n    OSType = properties.osName,\r\n    OSsku = properties.osSku,\r\n    ESU_Licensed_State= properties.licenseProfile.esuProfile.licenseAssignmentState,\r\n    ServerEdition = properties.licenseProfile.esuProfile.serverType,\r\n    VMCores = toint(properties.detectedProperties.coreCount),\r\n    HostType = properties.detectedProperties.model\r\n| where OSType == 'windows' and OSsku like  \"Windows Server 2012\"\r\n|project  Hostname , OSsku,  ESU_Licensed_State,ServerEdition, HostType\r\n//comment the next line to get ComputerNames\r\n| summarize count() by  tostring(  ESU_Licensed_State), tostring(HostType), tostring(ServerEdition)",
-                  "isOptional": true
-                },
-                {
                   "name": "chartType",
                   "isOptional": true
                 },
                 {
                   "name": "isShared",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryId",
-                  "value": "d4e70f17-c6c9-454e-a2fc-b63fc9c03a60",
                   "isOptional": true
                 },
                 {
@@ -931,12 +783,21 @@
                     "values": []
                   },
                   "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "// Count of Windows Server 2012 and R2 servers braken down by hostType (Virtual/pCores), OS Edition, and ESU License Edition\r\nresources\r\n| where type == \"microsoft.hybridcompute/machines\"\r\n| extend \r\n    Hostname =  properties.osProfile.computerName,\r\n    OSType = properties.osName,\r\n    OSsku = properties.osSku,\r\n    ESU_Licensed_State= properties.licenseProfile.esuProfile.licenseAssignmentState,\r\n    ServerEdition = properties.licenseProfile.esuProfile.serverType,\r\n    VMCores = toint(properties.detectedProperties.coreCount),\r\n    HostType = properties.detectedProperties.model\r\n| where OSType == 'windows' and OSsku like  \"Windows Server 2012\"\r\n|project  Hostname , OSsku,  ESU_Licensed_State,HostType,VMCores\r\n",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
                 }
               ],
               "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
               "settings": {},
               "partHeader": {
-                "title": "ESU Assignment",
+                "title": "Hostnames, ESU license State and cores per server",
                 "subtitle": ""
               }
             }
